@@ -1,16 +1,16 @@
-input = File.read("day-one-input.txt").split("\n")
+input = File.read("./inputs/day-one-input.txt").split("\n")
 
-caloriesPerElf = []
-currentSum = 0
+calories_per_elf = []
+current_sum = 0
 
 input.each do |elem|
   if elem == ""
-    caloriesPerElf.push(currentSum)
-    currentSum = 0
+    calories_per_elf.push(current_sum)
+    current_sum = 0
   else
-    currentSum += elem.to_i
+    current_sum += elem.to_i
   end
 end
 
-puts "highest calories", caloriesPerElf.max(1)
-puts "top three highest calories", caloriesPerElf.max(3).sum
+puts "highest calories", calories_per_elf.max(1)
+puts "top three highest calories", calories_per_elf.max(3).sum

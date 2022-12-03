@@ -1,4 +1,4 @@
-input = File.read("day-two-input.txt").split("\n")
+input = File.read("./inputs/day-two-input.txt").split("\n")
 
 first_score = 0
 second_score = 0
