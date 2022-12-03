@@ -5,7 +5,7 @@ shared_items = []
 input.each do |rucksack|
   midpoint = rucksack.length / 2
 
-  left = rucksack[0, midpoint]
+  left = rucksack[0..midpoint]
   right = rucksack[midpoint..-1]
 
   left.split('').each do |char|
@@ -30,17 +30,13 @@ input.each_with_index do |rucksack, idx|
 end
 
 def get_priorities_sum(arr)
-  priorities_sum = 0
-
-  arr.each do |char|
+  arr.reduce(0) do |sum, char|
     if char.ord >= 65 && char.ord <= 90
-      priorities_sum += (char.ord - 38)
+      sum += (char.ord - 38)
     elsif char.ord >= 97 && char.ord <= 122
-      priorities_sum += (char.ord - 96)
+      sum += (char.ord - 96)
     end
   end
-
-  return priorities_sum
 end
 
 
