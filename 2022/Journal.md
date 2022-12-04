@@ -10,4 +10,9 @@ So my goal for Advent of Code is to have fun working through the problems and im
 
 ## Day Four
 I am enjoying this immensely so far, but good lord does Ruby have a lot of methods! Sometimes I stumble across them when looking up how to do something, but a lot of the time I discover they exist when reading other people's solutions. Yesterday I remembered the `reduce` method exists, while today I learned about `cover`! 
-Today it's the `count` and `cover` methods, which really helped condense my code while still keeping it readable!
+
+Refactoring today's solution was interesting, as I initially used the `reduce` and `cover` methods, but then didn't like my solution. For some reason I didn't think `reduce` actually returned the reduced value (even though it does in JavaScript — I think I tested this wrong initially when I concluded it doesn't return a value the way I expected). So I felt like I had to use `reduce` in a function and then call that function, which didn't really improve my code much. And it added an extra couple of lines because you need the `else` statement returning the reduced value or else it defaults to nil and the method won't work (I'm lucky I didn't run into this yesterday!). And then the `cover` method felt more unreadable and bulky, even though it got rid of my function checking whether the values were in the specified range.
+
+I kept playing with it, though, and realized that you _can_ set a reduce call to a variable. And then I started looking for better ways to check whether my value was in the range of the other pair and discovered the `between` method, because of course Ruby has a method for literally everything! I also fiddled with a few other things before settling on what I have now.
+
+I'm pretty happy with my final solution! Though I discovered today that Ruby doesn't have the `++` increment shortcut, which I find rather annoying, ngl. I suppose a bunch of the other nifty things make up for it, but I still wish it was there!
