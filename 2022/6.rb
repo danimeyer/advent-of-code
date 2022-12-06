@@ -2,41 +2,23 @@ require 'set'
 
 input = File.read("./inputs/day-six-input.txt").split("")
 
-input.each_with_index do |char, idx|
-  char_set = Set[]
+def find_unique_string(char_array, length)
+  char_array.each_with_index do |char, idx|
+    char_set = Set.new
+    key = idx
+    counter = length
 
-  char_set.add(char)
-  char_set.add(input[idx + 1])
-  char_set.add(input[idx + 2])
-  char_set.add(input[idx + 3])
+    while counter > 0
+      char_set.add(char_array[key])
+      counter -= 1
+      key += 1
+    end
 
-  if char_set.length == 4
-    puts "four unique characters: #{idx + 4}"
-    break
+    if char_set.length == length
+      return idx + length
+    end
   end
 end
 
-input.each_with_index do |char, idx|
-  char_set = Set[]
-
-  char_set.add(char)
-  char_set.add(input[idx + 1])
-  char_set.add(input[idx + 2])
-  char_set.add(input[idx + 3])
-  char_set.add(input[idx + 4])
-  char_set.add(input[idx + 5])
-  char_set.add(input[idx + 6])
-  char_set.add(input[idx + 7])
-  char_set.add(input[idx + 8])
-  char_set.add(input[idx + 9])
-  char_set.add(input[idx + 10])
-  char_set.add(input[idx + 11])
-  char_set.add(input[idx + 12])
-  char_set.add(input[idx + 13])
-
-
-  if char_set.length == 14
-    puts "fourteen unique characters: #{idx + 14}"
-    break
-  end
-end
+puts "four: #{find_unique_string(input, 4)}"
+puts "fourteen: #{find_unique_string(input, 14)}"
